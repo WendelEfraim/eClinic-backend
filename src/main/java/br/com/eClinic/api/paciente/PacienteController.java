@@ -22,7 +22,11 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @PostMapping
+<<<<<<< HEAD
     public ResponseEntity<Paciente> save(@RequestBody PacienteRequest pacienteRequest) {
+=======
+    public ResponseEntity<Paciente> save(@RequestBody PacienteRequest pacienteRequest) throws Exception {
+>>>>>>> a1044b6383b2ddf1ded34b5afeefea85154d607a
         Paciente paciente = pacienteService.save(pacienteRequest.build());
         return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
     }

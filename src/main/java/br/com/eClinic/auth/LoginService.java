@@ -1,9 +1,5 @@
 package br.com.eClinic.auth;
 
-
-import java.sql.SQLException;
-
-
 public class LoginService {
 
     public void validarLogin(String email, String senha) throws Exception {
