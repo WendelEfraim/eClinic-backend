@@ -18,15 +18,12 @@ public class PacienteService {
     @Autowired
    private PacienteRepository repository;
 
-   @Transactional
+   /*@Transactional
    public Paciente save(Paciente paciente) {
 
        paciente.setHabilitado(Boolean.TRUE);
        return repository.save(paciente);
-   }
-
-
-    private PacienteRepository repository;
+   }*/
 
     @Transactional
     public Paciente save(Paciente paciente) throws Exception {

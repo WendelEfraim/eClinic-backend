@@ -18,14 +18,10 @@ import br.com.eClinic.modelo.medico.MedicoService;
 public class MedicoController {
    @Autowired
     private MedicoService medicoService;
-
-
      @PostMapping
-<<<<<<< HEAD
-    public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
-=======
+    //public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
     public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest)throws Exception {
->>>>>>> a1044b6383b2ddf1ded34b5afeefea85154d607a
+
         Medico medico = medicoService.save(medicoRequest.build());
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }

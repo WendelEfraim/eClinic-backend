@@ -45,6 +45,11 @@ public class Paciente extends EntidadeAuditavel {
   @Column
   private String enderecoUf;
 
+    // Método para exibir o menu do paciente
+    public void exibirMenu() {
+      System.out.println("Menu do Paciente");
+    
+  }
   
 
 

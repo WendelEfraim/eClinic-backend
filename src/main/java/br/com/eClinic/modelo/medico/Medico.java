@@ -48,4 +48,10 @@ public class Medico extends EntidadeAuditavel{
 
   @Column
   private String crm;
+
+    // Método para exibir o menu 
+    public void exibirMenu() {
+      System.out.println("Menu do Médico");
+     
+  }
 }
