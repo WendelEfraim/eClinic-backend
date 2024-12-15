@@ -3,13 +3,13 @@ package br.com.eClinic.api.auth;
 public class AuthResponse {
     
     private String message;
-    private String token; 
+    private String token;
 
     public AuthResponse(String message) {
         this.message = message;
     }
 
- 
+
     public AuthResponse(String message, String token) {
         this.message = message;
         this.token = token;

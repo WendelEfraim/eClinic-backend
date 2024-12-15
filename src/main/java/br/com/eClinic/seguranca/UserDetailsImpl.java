@@ -7,24 +7,27 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
 import java.util.List;
-//import java.util.Objects;
+// import java.util.Objects;
 
 public class UserDetailsImpl implements UserDetails  {
 
+    
 
-    private String username; 
+    private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl( String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
+
         this.authorities = authorities;
     }
 
     public static UserDetailsImpl build(Usuario usuario) {
         List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(usuario.getRole()));
         return new UserDetailsImpl(
+
                 usuario.getUsername(),
                 usuario.getPassword(),
                 authorities
@@ -35,6 +38,7 @@ public class UserDetailsImpl implements UserDetails  {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
+
 
     @Override
     public String getPassword() {

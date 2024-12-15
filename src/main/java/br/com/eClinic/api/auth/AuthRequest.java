@@ -10,7 +10,7 @@ public class AuthRequest {
     @NotBlank(message = "A senha é obrigatória")
     private String password;
 
-   
+
     public AuthRequest() {}
 
     public String getUsername() {
