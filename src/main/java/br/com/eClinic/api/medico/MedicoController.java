@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.medico.MedicoService;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -26,9 +27,8 @@ public class MedicoController {
     @Autowired
     private MedicoService medicoService;
 
-
     @PostMapping
-    public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
+    public ResponseEntity<Medico> save(@RequestBody @Valid MedicoRequest medicoRequest) {
         Medico medico = medicoService.save(medicoRequest.build());
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }

@@ -24,24 +24,40 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Paciente extends EntidadeAuditavel {
-  @Column
+  @Column(nullable = false, length = 100)
   private String nomeCompleto;
+
 
   @Column
   private LocalDate dataNascimento;
 
-  @Column
+
+  @Column(nullable = false, unique = true)
   private String cpf;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String email;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String senha;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String enderecoCidade;
 
-  @Column
+
+  @Column(nullable = false, length = 2)
   private String enderecoUf;
+
+    // Método para exibir o menu do paciente
+    public void exibirMenu() {
+      System.out.println("Menu do Paciente");
+    
+  }
+  
+
+
+ 
 }

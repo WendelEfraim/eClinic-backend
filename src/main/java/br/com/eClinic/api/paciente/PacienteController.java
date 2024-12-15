@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eClinic.modelo.paciente.Paciente;
 import br.com.eClinic.modelo.paciente.PacienteService;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -37,7 +38,10 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Paciente> save(@RequestBody PacienteRequest pacienteRequest) {
+    //public ResponseEntity<Paciente> save(@RequestBody PacienteRequest pacienteRequest) {
+
+    public ResponseEntity<Paciente> save(@RequestBody @Valid PacienteRequest pacienteRequest) throws Exception {
+
         Paciente paciente = pacienteService.save(pacienteRequest.build());
         return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
     }
