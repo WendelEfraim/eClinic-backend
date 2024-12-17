@@ -8,14 +8,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 @Service
 public class EmailService {
-    
+
     @Autowired
     private JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
     private String remetente;
-    public String enviarEmailTexto (String destinatario, String assunto, String mensagem){
-        try{
+
+    public String enviarEmailTexto(String destinatario, String assunto, String mensagem) {
+        try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
             simpleMailMessage.setFrom(remetente);
             simpleMailMessage.setTo(destinatario);
@@ -23,7 +24,7 @@ public class EmailService {
             simpleMailMessage.setText(mensagem);
             javaMailSender.send(simpleMailMessage);
             return "Email enviado";
-        }catch(Exception e){
+        } catch (Exception e) {
             return "Falha ao enviar email" + e.getLocalizedMessage();
         }
     }

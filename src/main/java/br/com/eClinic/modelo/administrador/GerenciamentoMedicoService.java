@@ -25,7 +25,7 @@ public class GerenciamentoMedicoService {
 
     public GerenciadorMedico obterPorID(Long id) {
         return repository.findById(id)
-                         .orElseThrow(() -> new RuntimeException("Médico não encontrado com ID: " + id));
+                .orElseThrow(() -> new RuntimeException("Médico não encontrado com ID: " + id));
     }
 
     @Transactional
@@ -37,18 +37,19 @@ public class GerenciamentoMedicoService {
 
         repository.save(gerenciadormedico);
     }
+
     public List<GerenciadorMedico> filtroMedicos(String especialidade, Long id, String nome) {
-    if (especialidade != null && !especialidade.isEmpty()) {
-        return repository.findByEspecialidades(especialidade);
+        if (especialidade != null && !especialidade.isEmpty()) {
+            return repository.findByEspecialidades(especialidade);
+        }
+        if (id != null) {
+            return repository.findById(id).map(List::of).orElse(List.of());
+        }
+        if (nome != null && !nome.isEmpty()) {
+            return repository.findByNomeCompletoContaining(nome);
+        }
+        return listarTodos();
     }
-    if (id != null) {
-        return repository.findById(id).map(List::of).orElse(List.of());
-    }
-    if (nome != null && !nome.isEmpty()) {
-        return repository.findByNomeCompletoContaining(nome);
-    }
-    return listarTodos();
-}
 
     @Transactional
     public void delete(Long id) {

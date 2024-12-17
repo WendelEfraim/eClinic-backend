@@ -32,7 +32,7 @@ public class GerenciamentoMedicoController {
         return new ResponseEntity<GerenciadorMedico>(gerenciadorMedico, HttpStatus.CREATED);
     }
 
-      @GetMapping("/filtro")// filtro no gerenciamento de medicos
+    @GetMapping("/filtro") // filtro no gerenciamento de medicos
     public List<GerenciadorMedico> filtroMedicos(@RequestParam(required = false) String especialidade,
             @RequestParam(required = false) Long id,
             @RequestParam(required = false) String nome) {

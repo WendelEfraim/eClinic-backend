@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-
 import br.com.eClinic.modelo.paciente.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,15 +15,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteRequest {
-  
+
   private String nomeCompleto;
 
-   @JsonFormat(pattern = "dd/MM/yyyy") // mascara de campos
+  @JsonFormat(pattern = "dd/MM/yyyy") // mascara de campos
   private LocalDate dataNascimento;
 
   private String email;
 
-  private String senha ;
+  private String senha;
 
   private String enderecoCidade;
 
@@ -35,19 +33,17 @@ public class PacienteRequest {
 
   private String cpf;
 
-
   public Paciente build() {
 
     return Paciente.builder()
-    .nomeCompleto(nomeCompleto)
-    .dataNascimento(dataNascimento)
-    .email(email)
-    .senha(senha)
-    .enderecoCidade(enderecoCidade)
-    .enderecoUf(enderecoUf)
-    .cpf(cpf)
-    .build();
-        
-}
-}
+        .nomeCompleto(nomeCompleto)
+        .dataNascimento(dataNascimento)
+        .email(email)
+        .senha(senha)
+        .enderecoCidade(enderecoCidade)
+        .enderecoUf(enderecoUf)
+        .cpf(cpf)
+        .build();
 
+  }
+}

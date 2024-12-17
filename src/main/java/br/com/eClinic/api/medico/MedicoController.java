@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.medico.MedicoService;
-
 
 @RestController
 @RequestMapping("/api/medicos")
@@ -26,14 +24,13 @@ public class MedicoController {
     @Autowired
     private MedicoService medicoService;
 
-
     @PostMapping
     public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
         Medico medico = medicoService.save(medicoRequest.build());
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }
 
-        @GetMapping
+    @GetMapping
     public List<Medico> listarTodos() {
         return medicoService.listarTodos();
     }
@@ -43,7 +40,7 @@ public class MedicoController {
         return medicoService.obterPorID(id);
     }
 
-        @PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Medico> update(@PathVariable("id") Long id, @RequestBody MedicoRequest request) {
 
         medicoService.update(id, request.build());

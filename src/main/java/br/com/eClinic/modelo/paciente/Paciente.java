@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity // ele torna a classe em uma entidade manipulada pela JPA
 @Table(name = "Paciente") // a partir dessa classe ele vai virar uma tabela no banco
 @SQLRestriction("habilitado = true")

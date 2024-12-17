@@ -21,7 +21,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Medico extends EntidadeAuditavel{
+public class Medico extends EntidadeAuditavel {
 
   @Column
   private String nomeCompleto;
