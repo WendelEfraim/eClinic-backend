@@ -3,10 +3,12 @@ package br.com.eClinic.modelo.medico;
 import java.time.LocalDate;
 import org.hibernate.annotations.SQLRestriction;
 
-
+import br.com.eClinic.modelo.acesso.Usuario;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +27,9 @@ import lombok.Setter;
 
 public class Medico extends EntidadeAuditavel {
 
-
+  @OneToOne
+  @JoinColumn(nullable = false)
+  private Usuario usuario;
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;

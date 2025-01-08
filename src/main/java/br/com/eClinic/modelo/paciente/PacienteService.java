@@ -1,23 +1,39 @@
 package br.com.eClinic.modelo.paciente;
 
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import br.com.eClinic.modelo.acesso.Perfil;
+import br.com.eClinic.modelo.acesso.PerfilRepository;
+import br.com.eClinic.modelo.acesso.UsuarioService;
 import jakarta.transaction.Transactional;
 
 @Service
 public class PacienteService {
 
     @Autowired
-   private PacienteRepository repository;
+    private UsuarioService usuarioService;
 
-   @Transactional
-   public Paciente save(Paciente paciente) {
+    @Autowired
+    private PerfilRepository perfilUsuarioRepository;
 
-       paciente.setHabilitado(Boolean.TRUE);
-       return repository.save(paciente);
-   }
+    @Autowired
+    private PacienteRepository repository;
+
+    @Transactional
+    public Paciente save(Paciente paciente) {
+        
+        usuarioService.save(paciente.getUsuario());
+
+        for (Perfil perfil : paciente.getUsuario().getRoles()) {
+            perfil.setHabilitado(Boolean.TRUE);
+            perfilUsuarioRepository.save(perfil);
+        }
+
+        paciente.setHabilitado(Boolean.TRUE);
+        return repository.save(paciente);
+    }
 
     @Transactional
     public void update(Long id, Paciente pacienteAlterado) {

@@ -3,7 +3,6 @@ package br.com.eClinic.api.medico;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -51,7 +50,7 @@ public class MedicoRequest {
   @Length(min = 10, max = 10, message = "O Crm deverá ter no máximo {max} caracteres")
   private String crm;
 
-   public Usuario buildUsuario() {
+  public Usuario buildUsuario() {
     return Usuario.builder()
         .username(crm)
         .password(senha)
@@ -59,22 +58,20 @@ public class MedicoRequest {
         .build();
   }
 
-
   public Medico build() {
 
-    return Medico.builder()
-        .nomeCompleto(nomeCompleto)
-        .dataNascimento(dataNascimento)
-        .email(email)
-        .senha(senha)
-        .enderecoCidade(enderecoCidade)
-        .enderecoUf(enderecoUf)
-        .descricao(descricao)
-        .crm(crm)
-        .build();
-
-  }
-
-
+      return Medico.builder()
+          .usuario(buildUsuario())
+          .nomeCompleto(nomeCompleto)
+          .dataNascimento(dataNascimento)
+          .email(email)
+          .senha(senha)
+          .enderecoCidade(enderecoCidade)
+          .enderecoUf(enderecoUf)
+          .descricao(descricao)
+          .crm(crm)
+          .build();
+  
+    }
 
 }
