@@ -1,7 +1,6 @@
 
 # eClinic+ - Telemedicina com Chatbot 🩺🤖
 
-<img src="../eClinic-backend/src/main/Imagem/Eclinic.home.jpeg" alt="Logo do eClinic+" width="300"/>
 
 
 ## Introdução
